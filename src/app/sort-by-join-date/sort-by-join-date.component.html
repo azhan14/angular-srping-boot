@@ -1,0 +1,40 @@
+<h2>Employe List Sorted By Join Date</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Contact</th>
+            <th>Gender</th>
+            <th>DOB</th>
+            <th>Joining</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Country</th>
+            <th>Pincode</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let employee of employees">
+            <td>{{ employee.id }}</td>
+            <td>{{ employee.name }}</td>
+            <td>{{ employee.surname }}</td>
+            <td>{{ employee.contact }}</td>
+            <td>{{ employee.gender }}</td>
+            <td>{{ employee.dateOfBirth }}</td>
+            <td>{{ employee.joiningDate }}</td>
+            <td>{{ employee.address }}</td>
+            <td>{{ employee.city }}</td>
+            <td>{{ employee.state }}</td>
+            <td>{{ employee.country }}</td>
+            <td>{{ employee.pincode }}</td>
+            <td>
+                <button (click) = "updateEmployee(employee.id)" class="btn btn-info">Update</button>
+                <button (click) = "deleteEmployee(employee.id)" class="btn btn-danger" style="margin-left: 5px;">DELETE</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
