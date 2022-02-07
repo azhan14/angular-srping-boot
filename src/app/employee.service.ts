@@ -39,4 +39,8 @@ export class EmployeeService {
   getSortedEmployeeByJoinDate(): Observable<Employee[]>{
     return this.httpClient.get<Employee[]>(`${this.baseURL}/sortbyjoindate`)
   }
+
+  getUserSearchedBy(pathEndPoint: string) : Observable<Employee[]>{
+    return this.httpClient.get<Employee[]>(`${this.baseURL}/${pathEndPoint}`);
+  }
 }

@@ -10,6 +10,9 @@ import { EmployeeService } from '../employee.service';
 })
 export class EmployeeListComponent implements OnInit {
   employees: Employee[];
+  searchOption: string = "null";
+  searchText: any = "";
+  pathEndPoints:any = "";
   constructor(private employeeService: EmployeeService, private router : Router) { }
 
   ngOnInit(): void {
@@ -30,6 +33,17 @@ export class EmployeeListComponent implements OnInit {
     this.employeeService.deleteEmployee(id).subscribe(data => {
       console.log(data);
       this.getUsers();
+    })
+  }
+  
+  onSearch(){
+    this.searchText = "";
+  }
+
+  onSearchText(){
+    this.pathEndPoints = this.searchOption+"/"+this.searchText;
+    this.employeeService.getUserSearchedBy(this.pathEndPoints).subscribe(data => {
+      this.employees = data;
     })
   }
 

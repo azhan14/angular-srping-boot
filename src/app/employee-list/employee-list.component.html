@@ -1,4 +1,12 @@
 <h2>Employe List</h2>
+<select name="searchOption" [(ngModel)]="searchOption" (change)="onSearch()">
+    <option value="null" selected>Search Options</option>
+    <option value="name">By Name</option>
+    <option value="surname">By Surame</option>
+    <option value="pincode">By Pincode</option>
+</select>
+<input type="text" [(ngModel)]="searchText" (change)="onSearchText()">
+<button>Search</button>
 <table class="table table-striped">
     <thead>
         <tr>
